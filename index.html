@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>XV Sophia Gabrielle</title>
 
   <style>
@@ -11,6 +12,11 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    html {
+      width: 100%;
+      height: 100%;
     }
 
     body {
@@ -33,7 +39,7 @@
     .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0, 0, 0, 0.42);
       z-index: -4;
     }
 
@@ -42,10 +48,11 @@
       inset: 0;
       background:
         radial-gradient(circle,
-          rgba(255, 215, 120, 0.35),
+          rgba(255, 215, 120, 0.32),
           transparent 45%);
       animation: brilho 3s infinite alternate;
       z-index: -3;
+      pointer-events: none;
     }
 
     @keyframes brilho {
@@ -66,20 +73,22 @@
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      padding-bottom: 70px;
+      padding-bottom: 35px;
+      padding-left: 16px;
+      padding-right: 16px;
     }
 
     .caixa {
-      width: 90%;
-      max-width: 430px;
-      background: rgba(25, 5, 5, 0.45);
-      backdrop-filter: blur(10px);
+      width: 82%;
+      max-width: 360px;
+      background: rgba(25, 5, 5, 0.42);
+      backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 215, 120, 0.5);
-      border-radius: 30px;
-      padding: 35px 25px;
+      border-radius: 26px;
+      padding: 24px 20px 26px;
       text-align: center;
       color: white;
-      box-shadow: 0 0 35px rgba(255, 190, 80, 0.4);
+      box-shadow: 0 0 28px rgba(255, 190, 80, 0.35);
       animation: subir 1.5s ease;
     }
 
@@ -96,24 +105,25 @@
     }
 
     .nome {
-      font-size: 24px;
+      font-size: 19px;
       color: #ffd98a;
       letter-spacing: 4px;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       text-transform: uppercase;
     }
 
     h1 {
-      font-size: 60px;
+      font-size: 50px;
       color: #fff4cf;
       text-shadow: 0 0 20px rgba(255, 210, 100, 0.9);
-      margin-bottom: 15px;
+      margin-bottom: 8px;
+      line-height: 1;
     }
 
     .linha {
-      width: 90px;
+      width: 80px;
       height: 2px;
-      margin: 20px auto;
+      margin: 14px auto 18px;
       background: linear-gradient(to right,
           transparent,
           #ffd36b,
@@ -121,15 +131,15 @@
     }
 
     .texto {
-      font-size: 17px;
+      font-size: 15px;
       color: #f6f1e7;
-      line-height: 1.6;
-      margin-bottom: 28px;
+      line-height: 1.45;
+      margin-bottom: 22px;
     }
 
     .botao {
       display: inline-block;
-      padding: 15px 35px;
+      padding: 13px 32px;
       border-radius: 40px;
       text-decoration: none;
       background: linear-gradient(135deg,
@@ -138,14 +148,21 @@
           #fff0b8);
       color: #4b1208;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 15px;
       transition: 0.4s;
-      box-shadow: 0 0 20px rgba(255, 210, 100, 0.8);
+      box-shadow: 0 0 18px rgba(255, 210, 100, 0.75);
     }
 
     .botao:hover {
       transform: scale(1.08);
       box-shadow: 0 0 40px rgba(255, 220, 120, 1);
+    }
+
+    .particulas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
     }
 
     .particulas span {
@@ -210,6 +227,7 @@
   </video>
 
   <div class="overlay"></div>
+
   <div class="brilho"></div>
 
   <div class="particulas">

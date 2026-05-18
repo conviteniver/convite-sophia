@@ -2,309 +2,391 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convite Sophia Gabrielle</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convite Sophia Gabrielle</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
 
-    body {
-      width: 100%;
-      min-height: 100vh;
-      overflow-x: hidden;
-      background: black;
-      font-family: Georgia, serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    .video-fundo {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -5;
-      filter: brightness(0.4);
-    }
+body{
+width:100%;
+min-height:100vh;
+overflow-x:hidden;
+background:black;
+font-family:Georgia,serif;
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
 
-    .overlay {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle, rgba(255, 215, 120, 0.15), rgba(0, 0, 0, 0.65));
-      z-index: -4;
-    }
+.video-fundo{
+position:fixed;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-5;
+filter:brightness(.4);
+}
 
-    .contador {
-      position: fixed;
-      top: 18px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      max-width: 520px;
-      display: flex;
-      justify-content: space-between;
-      padding: 14px 16px;
-      border-radius: 24px;
-      background: rgba(25, 10, 5, 0.58);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 215, 120, 0.45);
-      box-shadow: 0 0 30px rgba(255, 190, 80, 0.25);
-      z-index: 10;
-    }
+.overlay{
+position:fixed;
+inset:0;
+background:
+radial-gradient(
+circle,
+rgba(255,215,120,.15),
+rgba(0,0,0,.65)
+);
 
-    .tempo {
-      text-align: center;
-      color: #ffe7a8;
-      width: 25%;
-    }
+z-index:-4;
+}
 
-    .tempo span {
-      display: block;
-      font-size: 30px;
-      font-weight: bold;
-      text-shadow: 0 0 15px rgba(255, 215, 120, 0.8);
-    }
+.contador{
 
-    .tempo p {
-      margin-top: 4px;
-      font-size: 11px;
-      letter-spacing: 2px;
-    }
+position:fixed;
 
-    .convite {
-      width: 100%;
-      max-width: 600px;
-      padding: 110px 25px 25px;
-      animation: aparecer 1.5s ease;
-      position: relative;
-    }
+top:18px;
+left:50%;
 
-    @keyframes aparecer {
-      from {
-        opacity: 0;
-        transform: scale(0.8);
-      }
+transform:
+translateX(-50%);
 
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
+width:90%;
+max-width:520px;
 
-    .imagem-convite {
-      width: 100%;
-      border-radius: 20px;
-      box-shadow:
-        0 0 40px rgba(255, 200, 100, 0.4),
-        0 0 80px rgba(255, 180, 80, 0.2);
-      animation: brilho 4s infinite alternate;
-      display: block;
-    }
+display:flex;
 
-    @keyframes brilho {
-      from {
-        transform: scale(1);
-        filter: brightness(1);
-      }
+justify-content:space-between;
 
-      to {
-        transform: scale(1.01);
-        filter: brightness(1.08);
-      }
-    }
+padding:14px 16px;
 
-    .area-botao {
-      position: absolute;
-      bottom: 4%;
-      width: 26%;
-      height: 10%;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
+border-radius:24px;
 
-    .area-botao:hover {
-      background: rgba(255, 215, 120, 0.08);
-      box-shadow: 0 0 20px rgba(255, 215, 120, 0.3);
-    }
+background:
+rgba(25,10,5,.58);
 
-    .btn-presenca {
-      left: 8%;
-    }
+backdrop-filter:
+blur(10px);
 
-    .btn-presentes {
-      left: 37%;
-    }
+border:
+1px solid rgba(
+255,
+215,
+120,
+.45);
 
-    .btn-trajes {
-      left: 66%;
-    }
+z-index:10;
 
-    .particulas span {
-      position: fixed;
-      bottom: -20px;
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #ffd36b;
-      box-shadow: 0 0 15px #ffd36b;
-      animation: subir 8s linear infinite;
-      z-index: -2;
-    }
+}
 
-    .particulas span:nth-child(1) {
-      left: 10%;
-      animation-delay: 0s;
-    }
+.tempo{
+text-align:center;
+color:#ffe7a8;
+width:25%;
+}
 
-    .particulas span:nth-child(2) {
-      left: 30%;
-      animation-delay: 2s;
-    }
+.tempo span{
+display:block;
+font-size:30px;
+font-weight:bold;
+}
 
-    .particulas span:nth-child(3) {
-      left: 50%;
-      animation-delay: 1s;
-    }
+.tempo p{
+font-size:11px;
+margin-top:4px;
+}
 
-    .particulas span:nth-child(4) {
-      left: 70%;
-      animation-delay: 3s;
-    }
+.convite{
 
-    .particulas span:nth-child(5) {
-      left: 90%;
-      animation-delay: 4s;
-    }
+width:100%;
+max-width:600px;
 
-    @keyframes subir {
-      from {
-        transform: translateY(0) scale(0.5);
-        opacity: 0;
-      }
+padding:
+110px 25px 25px;
 
-      30% {
-        opacity: 1;
-      }
+position:relative;
 
-      to {
-        transform: translateY(-120vh) translateX(40px) scale(1.5);
-        opacity: 0;
-      }
-    }
+}
 
-    @media(max-width:700px) {
-      .convite {
-        padding: 105px 15px 15px;
-      }
+.imagem-convite{
 
-      .contador {
-        width: 92%;
-        padding: 12px 8px;
-      }
+width:100%;
 
-      .tempo span {
-        font-size: 24px;
-      }
+border-radius:20px;
 
-      .tempo p {
-        font-size: 9px;
-      }
-    }
-  </style>
+display:block;
+
+box-shadow:
+0 0 40px
+rgba(255,200,100,.4);
+
+}
+
+/* BOTÕES NOVOS */
+
+.area-botao{
+
+position:absolute;
+
+bottom:2.5%;
+
+height:10%;
+
+border-radius:50px;
+
+cursor:pointer;
+
+}
+
+.area-botao:hover{
+
+background:
+rgba(255,215,120,.08);
+
+}
+
+/* CONFIRMAR */
+
+.btn-presenca{
+
+left:25%;
+
+width:18%;
+
+}
+
+/* PRESENTES */
+
+.btn-presentes{
+
+left:57%;
+
+width:18%;
+
+}
+
+.particulas span{
+
+position:fixed;
+
+bottom:-20px;
+
+width:7px;
+height:7px;
+
+background:#ffd36b;
+
+border-radius:50%;
+
+box-shadow:
+0 0 15px #ffd36b;
+
+animation:
+subir 8s linear infinite;
+
+z-index:-2;
+
+}
+
+.particulas span:nth-child(1){
+left:10%;
+animation-delay:0s;
+}
+
+.particulas span:nth-child(2){
+left:30%;
+animation-delay:2s;
+}
+
+.particulas span:nth-child(3){
+left:50%;
+animation-delay:1s;
+}
+
+.particulas span:nth-child(4){
+left:70%;
+animation-delay:3s;
+}
+
+.particulas span:nth-child(5){
+left:90%;
+animation-delay:4s;
+}
+
+@keyframes subir{
+
+from{
+transform:
+translateY(0)
+scale(.5);
+opacity:0;
+}
+
+30%{
+opacity:1;
+}
+
+to{
+transform:
+translateY(-120vh)
+translateX(40px)
+scale(1.5);
+
+opacity:0;
+}
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <video class="video-fundo" autoplay muted loop playsinline>
-    <source src="rosa.mp4" type="video/mp4">
-  </video>
+<video class="video-fundo"
+autoplay
+muted
+loop
+playsinline>
 
-  <div class="overlay"></div>
+<source src="rosa.mp4"
+type="video/mp4">
 
-  <div class="contador">
-    <div class="tempo">
-      <span id="dias">00</span>
-      <p>DIAS</p>
-    </div>
+</video>
 
-    <div class="tempo">
-      <span id="horas">00</span>
-      <p>HORAS</p>
-    </div>
+<div class="overlay"></div>
 
-    <div class="tempo">
-      <span id="minutos">00</span>
-      <p>MIN</p>
-    </div>
+<div class="contador">
 
-    <div class="tempo">
-      <span id="segundos">00</span>
-      <p>SEG</p>
-    </div>
-  </div>
+<div class="tempo">
+<span id="dias">00</span>
+<p>DIAS</p>
+</div>
 
-  <div class="particulas">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+<div class="tempo">
+<span id="horas">00</span>
+<p>HORAS</p>
+</div>
 
-  <div class="convite">
+<div class="tempo">
+<span id="minutos">00</span>
+<p>MIN</p>
+</div>
 
-    <img
-      src="convite pronto.png"
-      class="imagem-convite"
-      alt="Convite Sophia Gabrielle">
+<div class="tempo">
+<span id="segundos">00</span>
+<p>SEG</p>
+</div>
 
-    <a href="confirmar.html" class="area-botao btn-presenca"></a>
+</div>
 
-    <a href="presentes.html" target="_blank" class="area-botao btn-presentes"></a>
+<div class="particulas">
 
-    <a href="trajes.html" class="area-botao btn-trajes"></a>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
 
-  </div>
+</div>
 
-  <script>
-    const destino = new Date("July 07, 2026 18:45:00").getTime();
+<div class="convite">
 
-    function atualizarContagem() {
-      const agora = new Date().getTime();
-      const distancia = destino - agora;
+<img
+src="convite pronto.png"
+class="imagem-convite">
 
-      if (distancia <= 0) {
-        document.getElementById("dias").innerHTML = "00";
-        document.getElementById("horas").innerHTML = "00";
-        document.getElementById("minutos").innerHTML = "00";
-        document.getElementById("segundos").innerHTML = "00";
-        return;
-      }
+<a
+href="confirmar.html"
+class="area-botao btn-presenca">
+</a>
 
-      const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-      const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-      const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+<a
+href="presentes.html"
+class="area-botao btn-presentes">
+</a>
 
-      document.getElementById("dias").innerHTML = dias.toString().padStart(2, "0");
-      document.getElementById("horas").innerHTML = horas.toString().padStart(2, "0");
-      document.getElementById("minutos").innerHTML = minutos.toString().padStart(2, "0");
-      document.getElementById("segundos").innerHTML = segundos.toString().padStart(2, "0");
-    }
+</div>
 
-    setInterval(atualizarContagem, 1000);
-    atualizarContagem();
-  </script>
+<script>
+
+const destino=
+new Date(
+"July 07, 2026 18:45:00"
+).getTime();
+
+function atualizarContagem(){
+
+const agora=
+new Date().getTime();
+
+const distancia=
+destino-agora;
+
+const dias=
+Math.floor(
+distancia/
+(1000*60*60*24)
+);
+
+const horas=
+Math.floor(
+(distancia%
+(1000*60*60*24))
+/
+(1000*60*60)
+);
+
+const minutos=
+Math.floor(
+(distancia%
+(1000*60*60))
+/
+(1000*60)
+);
+
+const segundos=
+Math.floor(
+(distancia%
+(1000*60))
+/
+1000
+);
+
+diasEl.innerHTML=dias;
+horasEl.innerHTML=horas;
+minutosEl.innerHTML=minutos;
+segundosEl.innerHTML=segundos;
+
+}
+
+const diasEl=
+document.getElementById("dias");
+
+const horasEl=
+document.getElementById("horas");
+
+const minutosEl=
+document.getElementById("minutos");
+
+const segundosEl=
+document.getElementById("segundos");
+
+setInterval(
+atualizarContagem,
+1000
+);
+
+atualizarContagem();
+
+</script>
 
 </body>
-
 </html>
